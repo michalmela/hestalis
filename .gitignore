@@ -1,0 +1,12 @@
+# IntelliJ
+.idea
+.iml
+*.isw
+
+# Maven
+target/**
+log/**
+
+.settings
+.classpath
+.project
