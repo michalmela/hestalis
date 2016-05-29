@@ -8,6 +8,11 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'Endor';
+  src: url('http://db.onlinewebfonts.com/c/6c1b2b10ce39fda64a2a381da15f89a8?family=Endor');
+}
+
 html {
   height: 100%;
 }
@@ -77,13 +82,13 @@ input {
   background-color: #434A52;
 }
 .form--login input[type="submit"] {
-  background-color: #ea4c88;
-  color: #eee;
+  background-color: yellow;
+  color: #363b41;
   font-weight: bold;
   text-transform: uppercase;
 }
 .form--login input[type="submit"]:focus, .form--login input[type="submit"]:hover {
-  background-color: #d44179;
+  background-color: #dfdf20;
 }
 .form__field {
   display: -webkit-box;
@@ -134,4 +139,12 @@ input {
   margin: 0 auto;
   max-width: 20rem;
   width: 90%;
+}
+
+.logo {
+  font-family: 'Endor', serif;
+  color: yellow;
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 15px;
 }
