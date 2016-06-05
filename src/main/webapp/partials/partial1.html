@@ -1,35 +1,24 @@
 <div>
     <p>
-        Result from RESTful service is: {{ firstname }}
+        {{ firstname }}
     </p>
 </div>
-
 <div class="site__container">
-
     <div class="grid__container">
-
     <div class="logo">Hestalis</div>
-
-        <form action="" method="post" class="form form--login">
-
+        <form ng-submit="login()" class="form form--login">
             <div class="form__field">
                 <label class="fontawesome-user" for="login__username"><span class="hidden">Username</span></label>
-                <input id="login__username" type="text" class="form__input" placeholder="Username" required>
+                <input ng-model="username" id="login__username" type="text" class="form__input" placeholder="Username" required>
             </div>
-
             <div class="form__field">
                 <label class="fontawesome-lock" for="login__password"><span class="hidden">Password</span></label>
-                <input id="login__password" type="password" class="form__input" placeholder="Password" required>
+                <input ng-model="password" id="login__password" type="password" class="form__input" placeholder="Password" required>
             </div>
-
             <div class="form__field">
                 <input type="submit" value="Sign In">
             </div>
-
         </form>
-
         <p class="text--center">Not a member? <a href="#" style="font-family: 'Endor',serif">Sign up now</a> <span class="fontawesome-arrow-right"></span></p>
-
     </div>
-
 </div>

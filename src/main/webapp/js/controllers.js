@@ -14,10 +14,20 @@ app.run(function ($rootScope, $templateCache) {
     });
 });
 
+app.controller('MyCtrl1', ['$scope', '$http', function ($scope, $http) {
+    $scope.login = function () {
+        //$scope.firstname = "Sukces";
 
-app.controller('MyCtrl1', ['$scope', 'UserFactory', function ($scope, UserFactory) {
-    $scope.bla = 'bla from controller';
-    UserFactory.get({}, function (userFactory) {
-        $scope.firstname = userFactory.firstName;
-    })
+        var encodedString = 'username=' +
+            encodeURIComponent($scope.username) +
+            '&password=' +
+            encodeURIComponent($scope.password);
+        $http({
+            method:'POST',
+            url: 'rest/users',
+            data: encodedString,
+            headers: {'Accept': 'application/x-www-form-urlencoded',
+                'Content-Type' : 'application/x-www-form-urlencoded'}
+        });
+    }
 }]);

@@ -57,7 +57,7 @@ input {
   width: 100%;
 }
 .form--login {
-  color: #606468;
+  color: grey;
 }
 .form--login label,
 .form--login input[type="text"],
@@ -147,4 +147,19 @@ input {
   font-size: 40px;
   text-align: center;
   margin-bottom: 15px;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color:    #606468;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color:    #606468;
+  opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color:    #606468;
+  opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color:    #606468;
 }
