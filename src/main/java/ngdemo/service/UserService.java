@@ -1,13 +1,13 @@
 package ngdemo.service;
 
-import ngdemo.domain.User;
+import ngdemo.domain.Login;
 
 public class UserService {
 
-    public User getDefaultUser() {
-        User user = new User();
-        user.setFirstName("JonFromREST");
-        user.setLastName("DoeFromREST");
-        return user;
+    public Login getDefaultLogin() {
+        Login login = new Login();
+        login.setUsername("daniel");
+        login.setPassword("aaa");
+        return login;
     }
 }

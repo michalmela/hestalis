@@ -1,39 +1,40 @@
 package ngdemo.rest;
 
 import ngdemo.domain.Login;
-import ngdemo.domain.User;
-import ngdemo.service.UserService;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 
 
-@Path("/users")
+@Path("/v1")
 public class UserRestService {
 
-    @GET
+/*    @GET
     @Produces(MediaType.APPLICATION_JSON)
     public User getDefaultUserInJSON() {
         UserService userService = new UserService();
         return userService.getDefaultUser();
-    }
+    }*/
 
+    @Path("/login")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public Response authenticateUser(Login user) {
+    public Response authenticateUser(@FormParam("username") String username,
+                                     @FormParam("password") String password, @Context UriInfo request) {
 
         try {
             // Authenticate the user using the credentials provided
-            authenticate(user.getUsername(), user.getPassword());
+            authenticate(username, password);
 
             // Issue a token for the user
-            String token = issueToken(user.getUsername());
+            String token = issueToken(username);
 
             // Return the token on the response
             return Response.ok(token).build();
-
         } catch (Exception e) {
             return Response.status(Response.Status.UNAUTHORIZED).build();
         }

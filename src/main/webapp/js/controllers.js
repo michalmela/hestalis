@@ -18,16 +18,16 @@ app.controller('MyCtrl1', ['$scope', '$http', function ($scope, $http) {
     $scope.login = function () {
         //$scope.firstname = "Sukces";
 
-        var encodedString = 'username=' +
-            encodeURIComponent($scope.username) +
-            '&password=' +
-            encodeURIComponent($scope.password);
         $http({
             method:'POST',
-            url: 'rest/users',
-            data: encodedString,
-            headers: {'Accept': 'application/x-www-form-urlencoded',
-                'Content-Type' : 'application/x-www-form-urlencoded'}
+            url: 'rest/v1/login',
+            data: $.param({
+                'username' : $scope.username,
+                'password' : $scope.password
+            }),
+            headers: { 'Content-Type' : 'application/x-www-form-urlencoded' }
+        }).success(function(data){
+            console.log(' data ');
         });
     }
 }]);
