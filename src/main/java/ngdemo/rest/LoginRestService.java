@@ -1,16 +1,27 @@
 package ngdemo.rest;
 
-import ngdemo.domain.Login;
+import ngdemo.dao.PlayerDAO;
+import ngdemo.model.entity.Player;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
+import java.util.Arrays;
+import java.util.Date;
 
 
 @Path("/v1")
-public class UserRestService {
+@Controller
+public class LoginRestService {
+
+    @Autowired
+    private PlayerDAO playerDAO;
 
 /*    @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -43,7 +54,12 @@ public class UserRestService {
     private void authenticate(String username, String password) throws Exception {
         // Authenticate against a database, LDAP, file or whatever
         // Throw an Exception if the credentials are invalid
-        if (!username.equals("daniel") || !password.equals("aaa")) {
+        Player player = playerDAO.getPlayerByUsername(username);
+        if (player != null && player.getPassword().equals(password)) {
+            //encode password in if
+            player.setLastLogin(new Date());
+        }
+        else {
             throw new Exception("Invalid login!");
         }
     }

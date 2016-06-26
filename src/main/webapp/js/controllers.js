@@ -1,4 +1,4 @@
-'use strict';
+//'use strict';
 
 /* Controllers */
 
@@ -16,8 +16,6 @@ app.run(function ($rootScope, $templateCache) {
 
 app.controller('MyCtrl1', ['$scope', '$http', function ($scope, $http) {
     $scope.login = function () {
-        //$scope.firstname = "Sukces";
-
         $http({
             method:'POST',
             url: 'rest/v1/login',

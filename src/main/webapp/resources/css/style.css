@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: 'Endor';
-  src: url('http://db.onlinewebfonts.com/c/6c1b2b10ce39fda64a2a381da15f89a8?family=Endor');
+  src: url('../fonts/endor.ttf');
 }
 
 html {

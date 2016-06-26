@@ -1,6 +1,6 @@
 package ngdemo.service;
 
-import ngdemo.domain.Login;
+import ngdemo.model.json.Login;
 
 public class UserService {
 
